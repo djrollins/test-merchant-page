@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>EasyFields Test Page</title>
+
+	<!--Vue dev -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="merchantPage.css">
+</head>
+
+<body>
+	<div id="main">
+		<merchant-page></merchant-page>
+	</div>
+</body>
+
+<script src="vue.min.js"></script>
+
+<script src="http://127.0.0.1:5500/dist/globalpayments.js"></script>
+<script src="merchantPage.js"></script>
+<script src="testingOptions.js"></script>
+<script>
+	var testPageVue = new Vue({
+		el: '#main',
+	});
+
+	//Implementation of plugin
+	var cardForm = GlobalPayments.ui.form({
+		fields: {
+			"card-holder-name": {
+				placeholder: "Jane Smith",
+				target: "#merch-card-holder"
+			},
+			"card-number": {
+				placeholder: "•••• •••• •••• ••••",
+				target: "#merch-card-number"
+			},
+			"card-expiration": {
+				placeholder: "MM / YYYY",
+				target: "#merch-card-expiration"
+			},
+			"card-cvv": {
+				placeholder: "•••",
+				target: "#merch-card-cvv"
+			},
+			"zip": {
+				placeholder: "90210",
+				target: "#merch-zip"
+			},
+			"submit": {
+				value: "Submit",
+				target: "#merch-submit"
+			}
+		},
+		styles: {
+			'input': {
+				'border-radius': '12px',
+				'border': '1px solid #9bc768;',
+				'padding': '.7em 1.2em',
+				'font-size': '16px',
+				'letter-spacing': '5px',
+				'outline': 'none'
+			},
+			'button': {
+				'background': '#9bc768',
+				'padding': '1rem',
+				'border-radius': '12px',
+				'border-width': '0',
+				'color': 'white',
+				'font-size': '15px',
+				'text-transform': 'uppercase',
+				'letter-spacing': '4px',
+			},
+			'button:active': {
+				'filter': 'brightness(103%)'
+			}
+		}
+	});
+
+	cardForm.on('token-error', function (resp) {
+		console.dir(GlobalPayments);
+	});
+	cardForm.on('error', function (resp) {
+		console.dir(cardffm);
+	});
+
+</script>
+
+</html>
