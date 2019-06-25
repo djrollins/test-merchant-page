@@ -1863,7 +1863,7 @@ var GlobalPayments = (function () {
 	//# sourceMappingURL=version.js.map
 
 	var assetBaseUrl = (function () {
-	    var result = "";
+	    var result = "http://htmlpreview.github.io/?https://raw.githubusercontent.com/jarettive/test-merchant-page/master/dist/";
 	    var gateway = getGateway();
 	    if (!gateway) {
 	        return result;
@@ -3432,7 +3432,6 @@ var GlobalPayments = (function () {
 	                        id: _this.id,
 	                        type: "ui:iframe-field:update-options",
                         }, _this.id);
-                        console.log('never makes it here');
 	                    break;
 	                case "resize":
 	                    _this.frame.style.height = data.data.height + "px";
