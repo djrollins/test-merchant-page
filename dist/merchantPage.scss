@@ -1,16 +1,18 @@
 $shadow : 0px 0px 19px #00000085;
-$darkerBlue: #1f262f;
+$darkerBlue: #2f3a48;
+$darkestBlue: #14181d;
 $lighterBlue: #6cb9e7;
 
 body,
 html {
 	margin: 0;
 	height: 100%;
-	background: $darkerBlue;
+	background: $darkestBlue;
 }
 
 #merchantPage {
 	height: 100%;
+	font-family: "source sans pro",Arial,sans-serif;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -22,30 +24,58 @@ html {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center; 
+	
 	> h1 {
 		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 		text-transform: uppercase;
 		letter-spacing: 5px;
-		font-size: 60px;
-		margin: 5rem;
+		font-size: 40px;
+		margin: 1rem;
 	}
 }
 
 #merchantBody {
 	display: flex;
 	justify-content: center;
+	margin-top: 4rem;
+	
 	> div {
 		margin: 0 3rem;
 	}
+}
 
-	.paymentField {
-		margin: .6rem 0;
+#fieldsContainer {
+	padding: 2rem 3rem;
+	border-radius: 1rem;
+	
+	#merch-submit {
+		margin-top: 2rem;
+	}
+
+	.groupHeader {
+		font-size: 1.4rem;
+		border-bottom: 1px solid white;
+	}
+
+	background: $darkerBlue;
+
+	.checkoutField {
+		margin: .8rem 1.5rem;
+
 		label {
 			display: block;
 			text-transform: uppercase;
 			margin: 4px 0;
+			font-size: .9rem;
 		}
-	}
+		&.small {
+			display: inline-block;
+			margin: .8rem .5rem;
+			width: 9rem;
+		};
+	}	
+
+	@import 'inputs';
 }
 
 #testingOptions {
@@ -75,6 +105,10 @@ html {
 		float: right;
 		margin-left: 2rem;
 	}
+}
+
+iframe {
+	max-height: 60px;
 }
 
 .testingLog {
@@ -122,19 +156,4 @@ html {
 		max-height: 200px;
 		transition: max-height .15s ease-out;
 	}
-}
-
-.fieldSpace {
-	height: 2rem;
-	border-radius: 4px;
-	background: rgb(226, 130, 130);
-	width: 20rem;
-	margin: 2rem 0;
-	justify-content: center;
-	display: flex;
-	align-items: center;
-}
-
-.fieldSpace::before {
-	content: 'Iframe field should replace this';
 }

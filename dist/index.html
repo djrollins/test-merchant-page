@@ -7,6 +7,10 @@
 	<title>EasyFields Test Page</title>
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="merchantPage.css">
+	<link rel="stylesheet" type="text/css" href="inputs.css">
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -21,6 +25,35 @@
 <script src="globalpayments.js"></script>
 <script src="merchantPage.js"></script>
 <script src="testingOptions.js"></script>
+<script>
+	function parseCSSText(cssText) {
+		var cssTxt = cssText.replace(/\/\*(.|\s)*?\*\//g, " ").replace(/\s+/g, " ");
+		var style = {}, [,ruleName,rule] = cssTxt.match(/ ?(.*?) ?{([^}]*)}/)||[,,cssTxt];
+		var properties = rule.split(";").map(o => o.split(":").map(x => x && x.trim()));;
+		for (var [property, value] of properties) {
+			style[property] = value;
+		}
+		var result = {};
+		result[ruleName] = style;
+		return result;
+	}
+
+	function styleSheetToObject(cssStyleSheet) {
+		var result = {};
+		for (var rule of cssStyleSheet.rules) {
+			var parsed = parseCSSText(rule.cssText);
+			$.extend(result, parsed);
+		}
+		return result;
+	}
+
+	for (var sheet of document.styleSheets) {
+		if (sheet.href.indexOf('inputs.css') !== -1) {
+			sheet.disabled = true;
+			window.inputStylings = styleSheetToObject(sheet);
+		}
+	}
+</script>
 <script>
 	var testPageVue = new Vue({
 		el: '#main',
@@ -45,44 +78,18 @@
 				placeholder: "•••",
 				target: "#merch-card-cvv"
 			},
-			"zip": {
-				placeholder: "90210",
-				target: "#merch-zip"
-			},
 			"submit": {
 				value: "Submit",
 				target: "#merch-submit"
 			}
 		},
-		styles: {
-			'input': {
-				'border-radius': '12px',
-				'border': '1px solid #9bc768;',
-				'padding': '.7em 1.2em',
-				'font-size': '16px',
-				'letter-spacing': '5px',
-				'outline': 'none'
-			},
-			'button': {
-				'background': '#9bc768',
-				'padding': '1rem',
-				'border-radius': '12px',
-				'border-width': '0',
-				'color': 'white',
-				'font-size': '15px',
-				'text-transform': 'uppercase',
-				'letter-spacing': '4px',
-			},
-			'button:active': {
-				'filter': 'brightness(103%)'
-			}
-		}
+		styles: window.inputStylings
 	});
 
 	cardForm.on('token-error', function (resp) {
 		console.dir(GlobalPayments);
 	});
-	
+
 	cardForm.on('error', function (resp) {
 		console.dir(cardffm);
 	});
