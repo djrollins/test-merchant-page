@@ -20,7 +20,6 @@ Vue.component('merchant-page', Vue.extend({
 				{ id: 'card-number', label: 'Card Number' },
 				{ id: 'card-expiration', label: 'Card Expiration' },
 				{ id: 'card-cvv', label: 'Card CVV' },
-				{ id: 'zip', label: 'Zip' },
 				{ id: 'submit', label: '' }
 			],
 		};

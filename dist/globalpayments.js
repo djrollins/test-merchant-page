@@ -1863,7 +1863,7 @@ var GlobalPayments = (function () {
 	//# sourceMappingURL=version.js.map
 
 	var assetBaseUrl = (function () {
-	    var result = "http://htmlpreview.github.io/?https://raw.githubusercontent.com/jarettive/test-merchant-page/master/dist/";
+	    var result = "https://raw.githack.com/jarettive/test-merchant-page/master/dist/";
 	    var gateway = getGateway();
 	    if (!gateway) {
 	        return result;
