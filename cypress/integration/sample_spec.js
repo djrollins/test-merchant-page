@@ -5,3 +5,12 @@ describe('Page visit', function() {
         cy.visit(pageURL);
     })
 });
+
+describe('Vue render', function() {
+    it('Finds elements that Vue will render to the page', function() {
+        cy.visit(pageURL);
+        cy.contains('Testing Options');
+        cy.get('.logHeader').click({multiple: true});
+        cy.contains('Zoo wee mama');
+    })
+});
