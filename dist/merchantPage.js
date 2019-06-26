@@ -17,6 +17,9 @@ Vue.component('merchant-page', Vue.extend({
 							isPayment=true>
 						</form-field>
 					</div>
+					<div class='group'>
+						<form-field v-bind="submit" isPayment=true></form-field>
+					</div>
 				</div>
 				<testing-options></testing-options>
 			</div>
@@ -34,8 +37,8 @@ Vue.component('merchant-page', Vue.extend({
 				{ id: 'card-number'},
 				{ id: 'card-expiration'},
 				{ id: 'card-cvv'},
-				{ id: 'submit'}
 			],
+			submit: {id: 'submit'}
 		};
 	},
 
@@ -58,7 +61,6 @@ Vue.component('form-field', Vue.extend({
 
 	data: function () {
 		return {
-		
 		};
 	},
 

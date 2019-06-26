@@ -1,6 +1,6 @@
 input {
   border-radius: 12px;
-  border: 1px solid #9bc768;
+  border: 1px solid #7dab48;
   padding: .4em 1em;
   font-size: 16px;
   width: 100%;
@@ -12,12 +12,12 @@ input {
 }
 
 button {
-  background: #9bc768;
+  background: #7dab48;
   padding: 1rem;
   border-radius: 12px;
   border-width: 0;
   color: white;
-  font-size: 15px;
+  font-size: 18px;
   text-transform: uppercase;
   letter-spacing: 4px;
 }

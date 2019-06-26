@@ -26,7 +26,14 @@ html {
   text-transform: uppercase;
   letter-spacing: 5px;
   font-size: 40px;
-  margin: 1rem;
+  width: 100%;
+  background: #2f3a48;
+  margin: 0;
+  text-align: center;
+  -webkit-box-shadow: 0px 0px 25px #000000d2;
+          box-shadow: 0px 0px 25px #000000d2;
+  padding: .5rem 0;
+  border-bottom: 1px solid #7dab48;
 }
 
 #merchantBody {
@@ -36,7 +43,7 @@ html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 4rem;
+  margin-top: 6rem;
 }
 
 #merchantBody > div {
@@ -44,22 +51,26 @@ html {
 }
 
 #fieldsContainer {
-  padding: 2rem 3rem;
+  padding: 2rem 3rem 1rem 3rem;
   border-radius: 1rem;
+  -webkit-box-shadow: 0px 0px 25px #000000d2;
+          box-shadow: 0px 0px 25px #000000d2;
   background: #2f3a48;
 }
 
-#fieldsContainer #merch-submit {
-  margin-top: 2rem;
+#fieldsContainer .group:not(:last-child) {
+  margin-bottom: 2rem;
 }
 
-#fieldsContainer .groupHeader {
+#fieldsContainer .group .groupHeader {
   font-size: 1.4rem;
   border-bottom: 1px solid white;
+  margin: 0px -10px;
+  padding: 2px 5px;
 }
 
 #fieldsContainer .checkoutField {
-  margin: .8rem 1.5rem;
+  margin: .8rem .5rem;
 }
 
 #fieldsContainer .checkoutField label {
@@ -77,7 +88,7 @@ html {
 
 #fieldsContainer input {
   border-radius: 12px;
-  border: 1px solid #9bc768;
+  border: 1px solid #7dab48;
   padding: .4em 1em;
   font-size: 16px;
   width: 100%;
@@ -89,12 +100,12 @@ html {
 }
 
 #fieldsContainer button {
-  background: #9bc768;
+  background: #7dab48;
   padding: 1rem;
   border-radius: 12px;
   border-width: 0;
   color: white;
-  font-size: 15px;
+  font-size: 18px;
   text-transform: uppercase;
   letter-spacing: 4px;
 }
@@ -110,8 +121,8 @@ html {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  -webkit-box-shadow: 0px 0px 19px #00000085;
-          box-shadow: 0px 0px 19px #00000085;
+  -webkit-box-shadow: 0px 0px 25px #000000d2;
+          box-shadow: 0px 0px 25px #000000d2;
   border: 5px solid #6cb9e7;
   font-weight: bold;
   font-family: sans-serif;
